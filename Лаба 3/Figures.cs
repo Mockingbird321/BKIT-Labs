@@ -31,7 +31,7 @@ namespace _Laba
             else return 1;
         }
     }
-    #region Figures
+
     /// <summary>
     /// Класс Прямоугольник
     /// </summary>
