@@ -149,7 +149,16 @@ namespace ConsoleApp38
                        select new { id1 = x.id, id2 = t2.id };
             foreach (var x in wou1) Console.WriteLine(x);
             #endregion
-
+            Console.WriteLine("\nСписок всех отделов и количество сотрудников в каждом отделе. \n");
+            var wou2 = from x in worker
+            join l in wou on x.id equals l.worker into temp
+            from t1 in temp
+            join y in unit on t1.unit equals y.id into temp2
+            from t2 in temp2
+            select new { unit = t2.name, ucount = worker.Count(z => z.unit_id == x.id) };
+            foreach (var x in wou2) Console.WriteLine(x);
+            Console.WriteLine("\nPress any key to exit");
+            Console.ReadKey();
             Console.WriteLine("\nPress any key to exit");
             Console.ReadKey();
         }
